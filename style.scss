@@ -17,12 +17,6 @@ html{
 	box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 /*------------------------\
 |   header page content   |
 \------------------------*/
@@ -208,16 +202,17 @@ html{
 	.pageBody{
 		margin-top: 73px;
 		display: flex;
-		justify-content: center;
 		flex: 1 0 auto;
 		overflow: auto;
 		padding-bottom: 1em;
 		.pageContent{
 			background-color: #fff;
-			padding: $content-footer-padding;
+			padding: $standard-padding;
 			display: flex;
 			flex-wrap: wrap;
 			flex-direction: row;
+			width: 100%;
+			box-sizing: border-box;
 			h1, h2{
 				color: $text-color;
 			}
@@ -229,6 +224,8 @@ html{
 				flex-wrap: wrap;
 				flex-direction: row;
 				width: 100%;
+				box-sizing: border-box;
+				overflow: auto;
 				a{
 					text-decoration: none;
 					box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -254,11 +251,11 @@ html{
 				}
 				article.entry{
 					display: block;
-					width: 100%;
+					overflow: auto;
 					a{
 						text-decoration: none;
 						box-shadow: none;
-						color: $primary-color-dark;
+						color: $accent-color;
 						margin: 0;
 						padding: 0;
 						&:hover{
@@ -267,9 +264,13 @@ html{
 					}
 				}
 			}
+			@media screen and (min-width: 800px){
+				padding: $content-footer-padding;
+			}
 		}
 		@media screen and (min-width: 800px){
 			margin: 155px 0 0 0;
+			justify-content: center;
 		}
 	}
 
@@ -284,20 +285,48 @@ html{
 		color: #fff;
 		width: 100%;
 		margin-top: auto;
+		a{
+			color: $accent-color;
+			text-decoration: none;
+		}
 		.container{
 			.topFooter{
 				display: flex;
-				padding: $content-footer-padding;
+				flex-direction: column;
+				padding: $standard-padding;
 				background-color: $primary-color;
+				img{
+						width: 50px;
+						height: 50px;
+						margin-top: 1rem;
+						margin-left: auto;
+						margin-right: auto;
+						@media screen and(min-width: 800px){
+							margin: $standard-padding;
+						}
+					}
 				.aboutMe{
-
+					display: flex;
+					flex-direction: column;
+					@media screen and(min-width: 800px){
+						flex-direction: row;
+						flex: 1 0 50%;
+					}
 				}
 				.favour{
-
+					display: flex;
+					flex-direction: column;
+					@media screen and(min-width: 800px){
+						flex-direction: row;
+					}
+				}
+				@media screen and(min-width: 800px){
+					flex-direction: row;
+					padding: $content-footer-padding;
 				}
 			}
 			.bottomFooter{
-				padding: $content-footer-padding;
+				padding: $standard-padding;
 				background-color: $primary-color-dark;
 				display: flex;
 				flex-direction: column;
@@ -335,11 +364,10 @@ html{
 
 					a{
 						text-align: center;
-						color: #fff;
-						text-decoration: none;
 					}
 				}
 				@media screen and (min-width: 800px){
+					padding: $content-footer-padding;
 					flex-direction: row;
 					justify-content: flex-start;
 					align-content: stretch;

@@ -58,7 +58,11 @@ $pageId = "0";
                     $pageId = "2";
                     require("snippets.php");
                     break;
-                  
+                  case 'privacy':
+                    $pageId = "privacy";
+                    require("privacy.html");
+                    break;
+                    
                   default:
                     echo "home page content";
                     break;
