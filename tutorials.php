@@ -15,7 +15,7 @@
 	}else{
 		echo "<article class=\"entry\">";
 		$articleQuery = $db->prepare("Select * From Articles Where ArticleID = ?");
-		$articleQuery->execute(array($_GET['a']));
+		$articleQuery->execute(array($HTMLpurifier->purify($_GET['a'])));
 		$row = $articleQuery->fetch();
 		$articleID = $row['ArticleID'];
 		$dirtyArticle = $parsedown->text("#".$row['ArticleTitle']."\r\n".$row['ArticleText']);

@@ -15,7 +15,7 @@
 	}else{
 		echo "<article class=\"entry\">";
 		$articleQuery = $db->prepare("Select * From Snippets Where SnippetID = ?");
-		$articleQuery->execute(array($_GET['a']));
+		$articleQuery->execute(array($HTMLpurifier->purify($_GET['a'])));
 		$row = $articleQuery->fetch();
 		$articleID = $row['SnippetID'];
 		$dirtyArticle = $parsedown->text("#".$row['SnippetTitle']."\r\n".$row['SnippetText']."\r\n ##Reference \r\n".$row['SnippetRef']);

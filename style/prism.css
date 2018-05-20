@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+csharp&plugins=line-numbers+toolbar+highlight-keywords+normalize-whitespace+copy-to-clipboard */
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+aspnet+csharp+css-extras+powershell&plugins=line-numbers+show-invisibles+autolinker+toolbar+jsonp-highlight+highlight-keywords+command-line+show-language+copy-to-clipboard */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -162,6 +162,42 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
+.token.tab:not(:empty),
+.token.cr,
+.token.lf,
+.token.space {
+	position: relative;
+}
+
+.token.tab:not(:empty):before,
+.token.cr:before,
+.token.lf:before,
+.token.space:before {
+	color: hsl(24, 20%, 85%);
+	position: absolute;
+}
+
+.token.tab:not(:empty):before {
+    content: '\21E5';
+}
+
+.token.cr:before {
+    content: '\240D';
+}
+
+.token.crlf:before {
+    content: '\240D\240A';
+}
+.token.lf:before {
+    content: '\240A';
+}
+
+.token.space:before {
+	content: '\00B7';
+}
+.token a {
+	color: inherit;
+}
 pre.code-toolbar {
 	position: relative;
 }
@@ -219,5 +255,39 @@ pre.code-toolbar > .toolbar span:hover,
 pre.code-toolbar > .toolbar span:focus {
 	color: inherit;
 	text-decoration: none;
+}
+
+.command-line-prompt {
+	border-right: 1px solid #999;
+	display: block;
+	float: left;
+	font-size: 100%;
+	letter-spacing: -1px;
+	margin-right: 1em;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.command-line-prompt > span:before {
+	color: #999;
+	content: ' ';
+	display: block;
+	padding-right: 0.8em;
+}
+
+.command-line-prompt > span[data-user]:before {
+	content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
+
+.command-line-prompt > span[data-user="root"]:before {
+	content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+	content: attr(data-prompt);
 }
 

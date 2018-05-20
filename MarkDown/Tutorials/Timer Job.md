@@ -87,7 +87,7 @@ While using SharePoint timer jobs I have encounted a few errors of my own.
 
 -----
 
->I have updated and deployed a SharePoint timer job using Visual Studio, and when I run the job it appears to be running an older version of the job?
+___I have updated and deployed a SharePoint timer job using Visual Studio, and when I run the job it appears to be running an older version of the job?___
 
 This happens from time to time. To fix this error, restart the SharePoint timer service from the servers services menu. This should fix the issue.
 

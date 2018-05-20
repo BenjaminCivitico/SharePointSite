@@ -44,9 +44,12 @@ $pageId = "0";
               //Change content based on the navigation options, and the page selected, 0=index, 1=tutorials, 2=snippets
               if(!isset($_GET['p'])){
                 echo "<article class=\"entry\">";
-                $indexMD = fopen("MarkDown/home page.md", r) or die("Please navigate this site using one of the links above!");
-                echo $parsedown->text(fread($indexMD, filesize("Markdown/home page.md")));
-                fclose($indexMD);
+                $articleQuery = $db->prepare("Select * From Pages Where PageID = 3");
+                $articleQuery->execute();
+                $row = $articleQuery->fetch();
+                $dirtyArticle = $parsedown->text($row['PageSummary']);
+                $cleanArticle = $HTMLpurifier->purify($dirtyArticle);
+                echo $cleanArticle;
                 echo "</article>";
               }else{
                 switch ($_GET['p']) {
@@ -64,7 +67,14 @@ $pageId = "0";
                     break;
                     
                   default:
-                    echo "home page content";
+                    echo "<article class=\"entry\">";
+                    $articleQuery = $db->prepare("Select * From Pages Where PageID = 3");
+                    $articleQuery->execute();
+                    $row = $articleQuery->fetch();
+                    $dirtyArticle = $parsedown->text($row['PageSummary']);
+                    $cleanArticle = $HTMLpurifier->purify($dirtyArticle);
+                    echo $cleanArticle;
+                    echo "</article>";
                     break;
                 }
               }

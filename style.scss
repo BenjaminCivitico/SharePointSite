@@ -147,6 +147,7 @@ html{
 		width: 100%;
 		display: flex;
 		.fullMenu{
+			background-color: #fff;
 			flex: 1 0 100%;
 			display: none;
 			flex-direction: column;
@@ -163,7 +164,7 @@ html{
 				//flex: 1 1 100%;
 				width: 210px;
 				padding: $standard-padding;
-				background-color: #fff;
+				//background-color: #fff;
 				font-family: 'Josefin Sans', sans-serif;
 				font-size: 1.25rem;
 				text-align: center;
@@ -208,10 +209,10 @@ html{
 		.pageContent{
 			background-color: #fff;
 			padding: $standard-padding;
+			width: 100%;
 			display: flex;
 			flex-wrap: wrap;
 			flex-direction: row;
-			width: 100%;
 			box-sizing: border-box;
 			h1, h2{
 				color: $text-color;

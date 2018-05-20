@@ -2,7 +2,7 @@
   <div class="topFooter">
     <div class="aboutMe">
       <img src="img/icons/user.png"/>
-      <p>Hey I'm Ben, a developer in Sydney who admnisters and creates solutions with SharePoint. <a href="http://benjamin.civitico.com">Click here</a> to find out more about me, and to get in contact.</p>
+      <p>Hey I'm Ben, a developer in Sydney who administers and creates solutions with SharePoint. <a href="http://benjamin.civitico.com">Click here</a> to find out more about me, and to get in contact.</p>
     </div>
     <div class="favour">
       <img src="img/icons/profiling.png">
