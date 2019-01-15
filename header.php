@@ -6,8 +6,8 @@
 <nav class="navigation">
   <div class="fullMenu">
   	<a class="navBtn" href=".">Home</a>
-    <a class="navBtn" href=".?p=1">Tutorials</a>
-    <a class="navBtn" href=".?p=2">Snippets</a>
+    <a class="navBtn" href=".?p=Tutorials">Tutorials</a>
+    <a class="navBtn" href=".?p=Snippets">Snippets</a>
     <a class="navBtn" href="http://benjamin.civitico.com">About Me</a>
   </div>
 </nav>

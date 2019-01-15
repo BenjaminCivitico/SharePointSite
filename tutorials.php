@@ -5,7 +5,7 @@
 		$query->execute();
 		$result = $query;
 		foreach ($result as $row) {
-			echo "<a href=\".?p=1&a=".$row["ArticleID"]."\"><div class=\"article\">";
+			echo "<a href=\".?p=Tutorials&a=".$row["ArticleTitle"]."\"><div class=\"article\">";
 			echo "<h1>".$row["ArticleTitle"]."</h1>";
 			$dirtyArticle = $parsedown->text(substr($row["ArticleText"], 0, 150))."<p>...(more)</p>";
 			$cleanArticle = $HTMLpurifier->purify($dirtyArticle);
@@ -14,7 +14,7 @@
 		}
 	}else{
 		echo "<article class=\"entry\">";
-		$articleQuery = $db->prepare("Select * From Articles Where ArticleID = ?");
+		$articleQuery = $db->prepare("Select * From Articles Where ArticleTitle = ?");
 		$articleQuery->execute(array($HTMLpurifier->purify($_GET['a'])));
 		$row = $articleQuery->fetch();
 		$articleID = $row['ArticleID'];
